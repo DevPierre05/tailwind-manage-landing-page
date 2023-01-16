@@ -107,8 +107,6 @@ smallScreenSlide()
 
 
 // SlideShow for medium screen +
-
-
 //Function to move testimonials
 let curIndex = 3;
 const mediumScreenSlide = function () {
