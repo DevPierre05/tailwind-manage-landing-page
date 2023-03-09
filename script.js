@@ -1,7 +1,8 @@
 "use strict mode";
 
 
-const toggle = document.getElementById("toggle");
+// const toggle = document.getElementById("toggle");
+const menuList = document.querySelector(".menu-list");
 const toggleIcon = document.getElementById("toggle-icon");
 const menu_bg = document.querySelector(".menu-bg");
 const hamburger = document.querySelector(".hamburger");
@@ -12,18 +13,20 @@ const dots = Array.from(document.querySelectorAll(".dot"));
 // Hamburger Menu
 let showMenu = false;
 
-toggle.addEventListener("click", toggleMenu);
+toggleIcon.addEventListener("click", toggleMenu);
 
 function toggleMenu() {
   if (!showMenu) {
     toggleIcon.src = "img/icon-close.svg";
-    hamburger.classList.remove("hidden");
     menu_bg.classList.remove("hidden")
-
+    menuList.classList.remove("hidden")
+    menuList.classList.add("flex")
     showMenu = true;
-  } else {
+    console.log(showMenu);
+  }else {
     toggleIcon.src = "img/icon-hamburger.svg";
-    hamburger.classList.add("hidden");
+    menuList.classList.add("hidden");
+    menuList.classList.remove("flex");
     menu_bg.classList.add("hidden");
 
     showMenu = false;
@@ -32,8 +35,8 @@ function toggleMenu() {
 
 // Overlay Click
 menu_bg.addEventListener("click", function() {
-  hamburger.classList.toggle("hidden");
-  menu_bg.classList.toggle("hidden");
+  menu_bg.classList.add("hidden");
+  menuList.classList.add("hidden")
   toggleIcon.src = "img/icon-hamburger.svg";
 })
 
